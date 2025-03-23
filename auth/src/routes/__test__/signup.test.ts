@@ -2,7 +2,7 @@ import request from "supertest";
 import { app } from "../../app";
 
 describe("POST /api/users/signup", () => {
-  it("returns a 201 with valid credentials", async () => {
+  it("responds with a 201 with valid credentials", async () => {
     await request(app)
       .post("/api/users/signup")
       .send({
@@ -12,7 +12,7 @@ describe("POST /api/users/signup", () => {
       .expect(201);
   });
 
-  it("returns a 400 with an invalid email", async () => {
+  it("responds with a 400 with an invalid email", async () => {
     await request(app)
       .post("/api/users/signup")
       .send({
@@ -22,7 +22,7 @@ describe("POST /api/users/signup", () => {
       .expect(400);
   });
 
-  it("returns a 400 with an invalid password", async () => {
+  it("responds with a 400 with an invalid password", async () => {
     await request(app)
       .post("/api/users/signup")
       .send({
@@ -32,7 +32,7 @@ describe("POST /api/users/signup", () => {
       .expect(400);
   });
 
-  it("returns a 400 with missing email and password", async () => {
+  it("responds with a 400 with missing email and password", async () => {
     await request(app)
       .post("/api/users/signup")
       .send({

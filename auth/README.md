@@ -1,3 +1,3 @@
 # Ticketing Auth Service
 
-trigger-change:2
+trigger-change:3

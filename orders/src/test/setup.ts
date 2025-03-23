@@ -33,7 +33,7 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-// could be moved to setup/auth-helper.ts and imported into *.test.ts files
+// @todo could be moved to setup/auth-helper.ts and imported into *.test.ts files
 declare global {
   var signin: () => string[];
 }

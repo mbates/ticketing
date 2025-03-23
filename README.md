@@ -195,3 +195,10 @@ use `contexts.name` for final arg
 ## Delete zone files created by Windows
 
 `find . -name "*:Zone.Identifier" -type f -delete`
+
+## Github / Docker authentication
+
+Add authentication to https://github.com/[ACCOUNT]/[REPO]/settings/secrets/actions
+
+- Add `DOCKER_USERNAME` as a repository action variable
+- Add `DOCKER_PASSWORD` as a repository action secret

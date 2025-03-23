@@ -12,8 +12,8 @@ jobs:
     name: Deploy auth
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Login to docker
         run: |
           cd auth

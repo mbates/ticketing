@@ -1,0 +1,20 @@
+name: deploy-auth
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - "auth/**"
+
+jobs:
+  build:
+    name: Deploy auth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run:
+       - cd auth
+       - npm run build
+       - docker login -u ${{ variables.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+       - npm run push

@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
+        name: Checkout code
+      - name: Login to docker
+        run: |
           cd auth
           npm run build
           docker login -u ${{ variables.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}

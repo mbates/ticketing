@@ -18,5 +18,8 @@ jobs:
         run: |
           cd auth
           npm run build
-          docker login -u ${{ variables.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           npm run push
+        env:
+          DOCKER_USERNAME: ${{ variables.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

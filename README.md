@@ -70,6 +70,10 @@ nats-depl-6754898fbd-sgr4j         1/1     Running   0          2m3s
 
 `kubectl describe pod auth-depl-65bb4949bd-lgcrk`
 
+**Get logs for a pod**
+
+`kubectl logs auth-depl-65bb4949bd-lgcrk`
+
 **Reset a pod**
 
 `kubectl delete pod client-depl-5485c68cfd-8wzrg`

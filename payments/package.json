@@ -6,6 +6,7 @@
     "build": "docker build -t batessolutions/ticketing-tickets .",
     "push": "docker push batessolutions/ticketing-tickets",
     "test": "jest --watchAll --no-cache --verbose",
+    "test:ci": "jest --verbose",
     "upgrade:common": "npm i @bates-solutions/ticketing-common@latest"
   },
   "jest": {

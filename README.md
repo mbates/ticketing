@@ -107,10 +107,6 @@ http://ingress-nginx.ingress.nginx.svc.cluster.local
 
 ingress-nginx-controller
 
-## Delete zone files created by Windows
-
-`find . -name "*:Zone.Identifier" -type f -delete`
-
 ## NATS
 
 to get more info on a channel:
@@ -158,3 +154,7 @@ orders>
 
 `db.tickets.find()`
 `db.tickets.find({price: 15})`
+
+## Delete zone files created by Windows
+
+`find . -name "*:Zone.Identifier" -type f -delete`

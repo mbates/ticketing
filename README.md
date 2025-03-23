@@ -155,6 +155,43 @@ orders>
 `db.tickets.find()`
 `db.tickets.find({price: 15})`
 
+## Digital Ocean
+
+https://digitalocean.com
+
+create an API key at https://cloud.digitalocean.com/account/api/tokens then run `doctl auth init` and paste in the generated token
+
+### switch contexts
+
+use this to debug deployed cluster
+
+`kubectl config view`
+
+```
+apiVersion: v1
+...
+contexts:
+- context:
+    cluster: do-sfo3-ticketing
+    user: do-sfo3-ticketing-admin
+  name: do-sfo3-ticketing
+- context:
+    cluster: docker-desktop
+    user: docker-desktop
+  name: docker-desktop
+...
+```
+
+#### Switch to local
+
+use `contexts.name` for final arg
+
+`kubectl config use-context docker-desktop`
+
+#### Switch to Digital Ocean
+
+`kubectl config use-context do-sfo3-ticketing`
+
 ## Delete zone files created by Windows
 
 `find . -name "*:Zone.Identifier" -type f -delete`

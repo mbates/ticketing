@@ -1,22 +1,22 @@
-name: deploy-auth
+name: deploy-client
 
 on:
   push:
     branches:
       - develop
     paths:
-      - "auth/**"
+      - "client/**"
 
 jobs:
   build:
-    name: Deploy auth
+    name: Deploy client
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Login to Docker
         run: |
-          cd auth
+          cd client
           npm run build
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           npm run push
@@ -29,5 +29,5 @@ jobs:
           token: ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}
       - name: Init Ticketing Cluster
         run: doctl kubernetes cluster kubeconfig save ticketing
-      - name: Rollout Auth Deployment
-        run: kubectl rollout restart deployment auth-depl
+      - name: Rollout Client Deployment
+        run: kubectl rollout restart deployment client-depl

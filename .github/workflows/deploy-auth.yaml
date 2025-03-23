@@ -17,9 +17,9 @@ jobs:
     name: Deploy auth
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Login to docker
+      - name: Login to Docker
         run: |
           cd auth
           npm run build
@@ -28,3 +28,11 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Setup DigitalOcean
+        uses: digitialocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}
+      - name: Init Ticketing Kube
+        run: doctl kubernetes cluster kubeconfig save ticketing
+      - name: Rollout Auth Deployment
+        run: kubectl rollout restart deployment auth-deply

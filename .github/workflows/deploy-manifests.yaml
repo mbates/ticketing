@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Deploy auth
+    name: Deploy infrastructure
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code

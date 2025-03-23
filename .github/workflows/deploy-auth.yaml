@@ -1,9 +1,14 @@
 name: deploy-auth
 
+# on:
+#   push:
+#     branches:
+#       - develop
+#     paths:
+#       - "auth/**"
+
 on:
-  push:
-    branches:
-      - develop
+  pull_request:
     paths:
       - "auth/**"
 

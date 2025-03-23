@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "docker build -t batessolutions/ticketing-client .",
+    "push": "docker push batessolutions/ticketing-client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "bootstrap": "^5.3.3",
+    "next": "^15.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-stripe-checkout": "^2.6.3"
+  }
+}

@@ -1,22 +1,22 @@
-name: deploy-auth
+name: deploy-orders
 
 on:
   push:
     branches:
       - develop
     paths:
-      - "auth/**"
+      - "orders/**"
 
 jobs:
   build:
-    name: Deploy auth
+    name: Deploy orders
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Login to Docker
         run: |
-          cd auth
+          cd orders
           npm run build
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           npm run push
@@ -27,7 +27,7 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}
-      - name: Init Ticketing Cluster
+      - name: Init Ticketing Kube
         run: doctl kubernetes cluster kubeconfig save ticketing
-      - name: Rollout Auth Deployment
-        run: kubectl rollout restart deployment auth-depl
+      - name: Rollout Orders Deployment
+        run: kubectl rollout restart deployment orders-depl

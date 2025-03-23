@@ -26,7 +26,11 @@ Latest documentations at https://kubernetes.github.io/ingress-nginx/deploy/
 
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/cloud/deploy.yaml`
 
+NB - Digital Ocean has their own installation
+
 ### Manage secrets
+
+`JWT_KEY` and `STRIPE_KEY` should be added to docker desktop cluster secrets and deployed (DigitalOcean) cluster secrets. Switch `context` between them to deploy to both.
 
 #### Create kubernetes secret for jwt
 

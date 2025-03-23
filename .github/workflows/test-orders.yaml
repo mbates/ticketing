@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+  name: Test orders
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v4

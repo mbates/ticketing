@@ -11,7 +11,7 @@ export default ({ req }) => {
   //   });
   // }
 
-  // Deployed Doain
+  // Deployed Domain
   if (typeof window === "undefined") {
     // We are on the server
     return axios.create({

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "build": "docker build -t batessolutions/ticketing-tickets .",
-    "push": "docker push batessolutions/ticketing-tickets",
+    "build": "docker build -t batessolutions/ticketing-payments .",
+    "push": "docker push batessolutions/ticketing-payments",
     "test": "jest --watchAll --no-cache --verbose",
     "test:ci": "jest --verbose",
     "upgrade:common": "npm i @bates-solutions/ticketing-common@latest"

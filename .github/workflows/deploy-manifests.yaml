@@ -22,4 +22,4 @@ jobs:
       # - name: Init Ticketing Kube
       #   run: doctl kubernetes cluster kubeconfig save ticketing
       - name: Apply Infrastrcture K8s
-        run: kubectl apply -f infrastructure/k8s
+        run: kubectl apply -f infrastructure/k8s && kubectl apply -f infrastructure/k8s-prod

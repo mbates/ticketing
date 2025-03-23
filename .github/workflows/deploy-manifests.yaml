@@ -15,10 +15,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Setup DigitalOcean
-        uses: digitialocean/action-doctl@v2
+        uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}
-      # - name: Init Ticketing Kube
-      #   run: doctl kubernetes cluster kubeconfig save ticketing
-      # - name: Apply Infrastrcture K8s
-      #   run: kubectl apply -f infrastructure/k8s && kubectl apply -f infrastructure/k8s-prod
+      - name: Init Ticketing Kube
+        run: doctl kubernetes cluster kubeconfig save ticketing
+      - name: Apply Infrastrcture K8s
+        run: kubectl apply -f infrastructure/k8s && kubectl apply -f infrastructure/k8s-prod

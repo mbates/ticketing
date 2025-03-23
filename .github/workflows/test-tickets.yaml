@@ -1,12 +1,11 @@
 name: test-tickets
 
-on: 
-  pull_request
+on: pull_request
 
 jobs:
   build:
-  name: Test tickets
+    name: Test tickets
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4
-     - run: cd tickets && npm ci && npm run test:ci
+      - uses: actions/checkout@v4
+      - run: cd tickets && npm ci && npm run test:ci

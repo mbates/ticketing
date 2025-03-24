@@ -49,8 +49,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: ingress-nginx-controller
   annotations:
-    service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+    kubernetes.digitalocean.com/load-balancer-id: "6fa99de8-eb78-4203-bdc5-eaf249394f83"
+    # service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
     service.beta.kubernetes.io/do-loadbalancer-hostname: "tickets.bates-solutions.com"
   labels:
     helm.sh/chart: ingress-nginx-3.15.2
@@ -59,11 +61,10 @@ metadata:
     app.kubernetes.io/version: 0.42.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: controller
-  name: ingress-nginx-controller
   namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
+  # externalTrafficPolicy: Local
   ports:
     - name: http
       port: 80

@@ -52,7 +52,7 @@ metadata:
   name: ingress-nginx-controller
   annotations:
     kubernetes.digitalocean.com/load-balancer-id: "6fa99de8-eb78-4203-bdc5-eaf249394f83"
-    # service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+    service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
     service.beta.kubernetes.io/do-loadbalancer-name: "tickets.bates-solutions.com"
     service.beta.kubernetes.io/do-loadbalancer-hostname: "tickets.bates-solutions.com"
   labels:
@@ -65,7 +65,7 @@ metadata:
   namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  # externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ports:
     - name: http
       port: 80

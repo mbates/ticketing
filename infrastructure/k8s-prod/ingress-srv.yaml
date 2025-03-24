@@ -53,6 +53,7 @@ metadata:
   annotations:
     kubernetes.digitalocean.com/load-balancer-id: "6fa99de8-eb78-4203-bdc5-eaf249394f83"
     # service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+    service.beta.kubernetes.io/do-loadbalancer-name: "tickets.bates-solutions.com"
     service.beta.kubernetes.io/do-loadbalancer-hostname: "tickets.bates-solutions.com"
   labels:
     helm.sh/chart: ingress-nginx-3.15.2

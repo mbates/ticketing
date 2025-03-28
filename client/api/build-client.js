@@ -15,7 +15,7 @@ export default ({ req }) => {
   if (typeof window === "undefined") {
     // We are on the server
     return axios.create({
-      baseURL: "https://tickets.bates-solutions.com",
+      baseURL: "http://tickets.bates-solutions.com",
       headers: req.headers,
     });
   } else {

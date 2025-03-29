@@ -36,9 +36,14 @@ const LandingPage = ({ currentUser, tickets }) => {
 };
 
 LandingPage.getInitialProps = async (context, client, currentUser) => {
-  const { data } = await client.get("/api/tickets");
+  try {
+    const { data } = await client.get("/api/tickets");
 
-  return { tickets: data };
+    return { tickets: data };
+  } catch (err) {
+    console.error("GET_TICKETS_ERROR:", err);
+    throw err;
+  }
 };
 
 export default LandingPage;

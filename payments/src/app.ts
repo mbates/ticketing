@@ -8,6 +8,7 @@ import {
   currentUser,
 } from "@bates-solutions/ticketing-common";
 import { createChargeRouter } from "./routes/new";
+import { indexPaymentRouter } from "./routes";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(
 );
 app.use(currentUser);
 
+app.use(indexPaymentRouter);
 app.use(createChargeRouter);
 
 app.all("*", async (req, res) => {

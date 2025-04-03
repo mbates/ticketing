@@ -20,39 +20,14 @@ build:
 
 `docker login` needs to be run in the WSL2 terminal
 
+### Github / Docker authentication
+
+Add authentication to https://github.com/[ACCOUNT]/[REPO]/settings/secrets/actions
+
+- Add `DOCKER_USERNAME` as a repository action variable
+- Add `DOCKER_PASSWORD` as a repository action secret
+
 ## Kubernetes
-
-### Install Ingress-nginx setup
-
-Latest documentations at https://kubernetes.github.io/ingress-nginx/deploy/
-
-`kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/cloud/deploy.yaml`
-
-NB - Digital Ocean has their own installation
-
-### Manage secrets
-
-`JWT_KEY` and `STRIPE_KEY` should be added to docker desktop cluster secrets and deployed (DigitalOcean) cluster secrets. Switch `context` between them to deploy to both.
-
-#### Create kubernetes secret for jwt
-
-create jwt-secret manually, better to use ENV_VARS in the config
-
-`kubectl create secret generic jwt-secret --from-literal=JWT_KEY=XXXXX`
-
-the secret is used in the `/infrastructure/k8s/*-depl.yaml` files
-
-#### Create kubernetes secret for (stripe) secret key
-
-create jwt-secret manually, better to use ENV_VARS in the config
-
-`kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=sk_test_XXXX`
-
-#### Commands
-
-`kubectl delete secret jwt-secret`
-
-`kubectl get secrets`
 
 ### Pods
 
@@ -88,7 +63,7 @@ _---only do this for local development---_
 
 `kubectl port-forward nats-depl-7449bd8fc4-wtvct 4222:4222`
 
-### Namespaces
+## Namespaces
 
 `kubectl get namespace`
 
@@ -205,10 +180,3 @@ use `contexts.name` for final arg
 ## Delete zone files created by Windows
 
 `find . -name "*:Zone.Identifier" -type f -delete`
-
-## Github / Docker authentication
-
-Add authentication to https://github.com/[ACCOUNT]/[REPO]/settings/secrets/actions
-
-- Add `DOCKER_USERNAME` as a repository action variable
-- Add `DOCKER_PASSWORD` as a repository action secret
